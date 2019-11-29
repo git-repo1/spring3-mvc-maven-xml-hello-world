@@ -4,7 +4,7 @@ pipeline {
     }
     tools {
         // Note: this should match with the tool name configured in your jenkins instance (JENKINS_URL/configureTools/)
-        maven "Maven3"
+        maven "MVN-3.6.1"
     }
     environment {
         // This can be nexus3 or nexus2
@@ -14,7 +14,7 @@ pipeline {
         // Where your Nexus is running
         NEXUS_URL = "localhost:8081"
         // Repository where we will upload the artifact
-        NEXUS_REPOSITORY = "dvs-evn-spring"
+        NEXUS_REPOSITORY = "latest_spring3"
         // Jenkins credential id to authenticate to Nexus OSS
         NEXUS_CREDENTIAL_ID = "nexus_credentials"
     }
@@ -32,7 +32,7 @@ pipeline {
                 script {
                     // If you are using Windows then you should use "bat" step
                     // Since unit testing is out of the scope we skip them
-                    bat(/${MAVEN_HOME}\bin\mvn -Dmaven.test.failure.ignore clean package/)
+                    sh 'mvn -B -DskipTests clean package'
                 }
             }
         }
