@@ -78,5 +78,10 @@ pipeline {
                 }
             }
         }
+        
+        stage ('C-Deploy') {
+            sh 'scp /home/ec2-user/jenkins/workspace/Nexus-Pipeline-1/webapp/target/*.war ec2-user@54.175.21.185:/tomcat/webapps/*.war'
+}
+
     }
 }
