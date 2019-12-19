@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label "master"
+        label "Dev-Label"
     }
     tools {
         // Note: this should match with the tool name configured in your jenkins instance (JENKINS_URL/configureTools/)
@@ -12,11 +12,11 @@ pipeline {
         // This can be http or https
         NEXUS_PROTOCOL = "http"
         // Where your Nexus is running
-        NEXUS_URL = "3.84.191.87:8081"
+        NEXUS_URL = "52.91.26.46:8081"
         // Repository where we will upload the artifact
         NEXUS_REPOSITORY = "latest_spring3"
         // Jenkins credential id to authenticate to Nexus OSS
-        NEXUS_CREDENTIAL_ID = "nexus_credentials"
+        NEXUS_CREDENTIAL_ID = "Nexus-Server-Credentials"
     }
     stages {
         stage("clone code") {
