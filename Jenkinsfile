@@ -80,7 +80,7 @@ pipeline {
         }
         
         stage ('C-Deploy') {
-            sh 'scp Nexus-Pipeline-1/webapp/target/*.war root@54.175.161.114:/tomcat/webapps/'
+            sh 'scp Nexus-Pipeline-1/target/*.war root@54.175.161.114:/tomcat/webapps/'
 }
 
     }
