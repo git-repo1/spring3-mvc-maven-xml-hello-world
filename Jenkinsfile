@@ -78,11 +78,6 @@ pipeline {
                 }
             }
         }
-        
-        stage ('C-Deploy') {
-            steps {
-                script {
-                    sh 'scp Nexus-Pipeline-1/target/*.war root@54.175.161.114:/tomcat/webapps/'
-                }
-            }
+        sshagent(['Jenkins-Slave-1(Credentials)']) {
+            sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@http://3.95.148.104:/tomcat/webapps/'
         }
